@@ -1,0 +1,17 @@
+$darkPurple: rgb(59, 37, 198);
+$darkPurpleFaded: rgba(61, 41, 189, 0.5);
+$gray: rgb(186, 186, 186);
+
+.app {
+  background-color: #000;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-size: cover;
+  overflow-y: hidden;
+}
+
+body {
+  overscroll-behavior-y: none;
+}
