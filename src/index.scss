@@ -2,13 +2,14 @@ html,
 body,
 .app,
 #root {
+  font-family: Space;
   height: 100%;
   min-width: 350px;
 }
 
 body {
+  font-family: Space;
   margin: 0;
-  // need cool font
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* disables highlighting */

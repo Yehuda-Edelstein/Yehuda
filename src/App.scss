@@ -2,7 +2,13 @@ $darkPurple: rgb(59, 37, 198);
 $darkPurpleFaded: rgba(61, 41, 189, 0.5);
 $gray: rgb(186, 186, 186);
 
+@font-face {
+  font-family: "Space";
+  src: local("Space"), url(./font/SpaceMono-Regular.ttf), format("truetype");
+}
+
 .app {
+  font-family: Space;
   background-color: #000;
   min-height: 100vh;
   align-items: center;
