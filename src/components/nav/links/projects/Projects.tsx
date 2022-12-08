@@ -19,20 +19,35 @@ function Projects() {
           <Offcanvas.Title></Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <h3>How To Write A Screenplay</h3>
-          <div className="project">
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://screenplayrules.com"
-            >
-              <span>[2022]</span>
-              <p>
-                This personal project was built in React.js and explains the dos
-                and don’ts of spec screenwriting in an enjoyable way. Made for
-                rookies.
-              </p>
-            </a>
+          <div>
+            <h3>Dumbnail</h3>
+            <div className="project">
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://app.dumbnail.com"
+              >
+                <span>[2022]</span>
+                <p>The ultimate memeshot maker</p>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3>How To Write A Screenplay</h3>
+            <div className="project">
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://screenplayrules.com"
+              >
+                <span>[2022]</span>
+                <p>
+                  This personal project was built in React.js and explains the
+                  dos and don’ts of spec screenwriting in an enjoyable way. Made
+                  for rookies.
+                </p>
+              </a>
+            </div>
           </div>
         </Offcanvas.Body>
       </Offcanvas>
