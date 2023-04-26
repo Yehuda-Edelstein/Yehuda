@@ -1,0 +1,41 @@
+@import "./../../index.scss";
+
+.resume-loading {
+  position: relative;
+  background-color: $dark-gray;
+  color: $dark-gray;
+  border: 1px solid black;
+  height: 323px;
+  width: 250px;
+
+  .spinner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+}
+
+.resume-loaded {
+  width: fit-content;
+  height: fit-content;
+  border: 1px solid black;
+  padding: 1px;
+  background-color: $dark-gray;
+}
+
+.resume {
+  opacity: 0;
+  animation: fade-in 1s ease-in-out forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
