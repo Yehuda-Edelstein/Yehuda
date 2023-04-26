@@ -1,0 +1,13 @@
+.error-page {
+  margin: auto;
+  font-family: "SF Mono";
+  a {
+    color: #f4a6b6;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      opacity: 0.9;
+    }
+  }
+}

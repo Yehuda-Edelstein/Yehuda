@@ -1,0 +1,27 @@
+$bg-color: #0a0c11;
+$dark-gray: #403d54;
+
+@font-face {
+  font-family: "SF Mono";
+  src: url("/src/assets/SF-Mono-Medium.otf") format("opentype");
+}
+
+html,
+.body {
+  color-scheme: light dark;
+  background-color: $bg-color;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+html,
+body,
+#root {
+  display: flex;
+  justify-content: center;
+}
