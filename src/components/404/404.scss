@@ -1,6 +1,8 @@
 .error-page {
-  margin: auto;
+  padding: 20px;
+  margin-top: calc(100% - 100px);
   font-family: "SF Mono";
+
   a {
     color: #f4a6b6;
     text-decoration: none;
@@ -9,5 +11,11 @@
       text-decoration: underline;
       opacity: 0.9;
     }
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .error-page {
+    margin-top: 40px;
   }
 }

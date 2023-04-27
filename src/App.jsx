@@ -1,5 +1,5 @@
 import React from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/home/Home";
 import Dumbnail from "./components/dumbnail/Dumbnail";
 import Header from "./components/header/Header";
@@ -9,17 +9,17 @@ import "./App.scss";
 
 function App() {
   return (
-    <Router>
+    <div>
       <Header />
       <div className="app">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dumbnail" element={<Dumbnail />} />
           <Route path="/screenplayrules" element={<ScreenplayRules />} />
-          {/* <Route path="*" element={<ErrorPage />} /> */}
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
-    </Router>
+    </div>
   );
 }
 

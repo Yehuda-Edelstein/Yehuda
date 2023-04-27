@@ -192,18 +192,24 @@ function Terminal({ dirs, cwd, closed, setClosed, setQuote }) {
       setCaretPosition(caretPosition + 1);
     } else if (event.keyCode === 38) {
       // up arrow
+      event.preventDefault();
       if (currentCommandIndex < previousCommands.length) {
         setCurrentCommandIndex(currentCommandIndex + 1);
+      } else if (currentCommandIndex === previousCommands.length) {
+        return; // exit early if already at the last command
       }
-      input.innerText =
-        previousCommands[previousCommands.length - currentCommandIndex] || "";
+      const index = previousCommands.length - currentCommandIndex;
+      input.innerText = index > 0 ? previousCommands[index - 1] : "";
+      setEndOfContenteditable(input);
       setCaretPosition(input.innerText.length);
     } else if (event.keyCode === 40) {
       // down arrow
+      event.preventDefault();
       if (currentCommandIndex > 0) {
         setCurrentCommandIndex(currentCommandIndex - 1);
-        input.innerText =
-          previousCommands[previousCommands.length - currentCommandIndex] || "";
+        const index = previousCommands.length - currentCommandIndex;
+        input.innerText = previousCommands[index] || "";
+        setEndOfContenteditable(input);
         setCaretPosition(input.innerText.length);
       } else {
         setCurrentCommandIndex(0);
