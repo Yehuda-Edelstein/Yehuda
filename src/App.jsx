@@ -9,7 +9,7 @@ import "./App.scss";
 
 function App() {
   return (
-    <Router basename="/yehuda">
+    <Router>
       <Header />
       <div className="app">
         <Routes>
