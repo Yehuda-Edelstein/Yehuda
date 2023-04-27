@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/home/Home";
 import Dumbnail from "./components/dumbnail/Dumbnail";
 import Header from "./components/header/Header";
@@ -9,7 +9,7 @@ import "./App.scss";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/yehuda">
       <Header />
       <div className="app">
         <Routes>
