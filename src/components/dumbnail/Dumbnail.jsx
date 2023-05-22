@@ -19,8 +19,8 @@ function Dumbnail(props) {
         social media with feeds, user auth, etc, all dedicated to the art of the
         meme: <br></br>
         <br></br>
-        <a target="_blank" rel="noreferrer" href="https://app.dumbnail.com">
-          https://app.dumbnail.com
+        <a target="_blank" rel="noreferrer" href="https://dumbnail.com">
+          https://dumbnail.com
         </a>
       </p>
       <h2>For Starters</h2>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import quotes from "../../assets/quotes.json";
 import Terminal from "../terminal/Terminal";
 import "./Home.scss";
