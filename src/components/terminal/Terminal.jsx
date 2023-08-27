@@ -5,7 +5,7 @@ import branches from "./../../assets/branches.json";
 import quotes from "./../../assets/quotes.json";
 import "./Terminal.scss";
 
-function Terminal({ dirs, cwd, closed, setClosed, setQuote }) {
+function Terminal({ dirs, cwd, closed, setClosed }) {
   const [close, setClose] = useState(closed);
   const [branch, setBranch] = useState(getRandomBranch());
   // get current date
@@ -286,11 +286,6 @@ function Terminal({ dirs, cwd, closed, setClosed, setQuote }) {
     return branches[index];
   }
 
-  function getRandomQuote() {
-    const index = Math.floor(Math.random() * quotes.length);
-    return quotes[index];
-  }
-
   return (
     <div className={!closed ? "wrapper" : ""}>
       {!close ? (
@@ -344,11 +339,12 @@ function Terminal({ dirs, cwd, closed, setClosed, setQuote }) {
                             handleKeyDown(ev, line.id);
                           }}
                           spellCheck="false"
-                        ></div>
-                        <span
-                          className="text-caret"
-                          style={{ left: `${caretPosition}ch` }}
-                        ></span>
+                        >
+                          <span
+                            className="text-caret"
+                            style={{ left: `${caretPosition}ch` }}
+                          ></span>
+                        </div>
                       </form>
                     </div>
                   );
@@ -426,9 +422,6 @@ function Terminal({ dirs, cwd, closed, setClosed, setQuote }) {
             setClose(false);
             setClosed(false);
             setCaretPosition(0);
-            if (setQuote) {
-              setQuote(getRandomQuote());
-            }
           }}
         >
           <img src={icon} alt="" />

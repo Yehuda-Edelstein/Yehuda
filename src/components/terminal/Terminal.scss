@@ -19,7 +19,8 @@
   max-height: 365px;
   border: 1px solid #646464;
   border-radius: 10px;
-  overflow-y: scroll;
+  // overflow-y: scroll;
+  overflow: hidden;
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
@@ -31,6 +32,7 @@
     min-height: 25px;
     padding: 4px 8px;
     background-color: #444;
+    width: 100%;
 
     .terminal-buttons-container {
       display: flex;
@@ -126,6 +128,7 @@
   .terminal-body {
     flex-grow: 1;
     overflow-y: scroll;
+    overflow-x: clip;
     font-family: "SF Mono";
     font-weight: bold;
     font-size: 11px;
@@ -133,6 +136,11 @@
     color: white;
     background-color: #1e1e1e;
     padding: 3px 4px;
+    padding-right: 25px;
+    margin-right: -25px;
+    overflow-wrap: break-word;
+    width: 100%;
+    box-sizing: content-box;
 
     .time {
       .terminal-time {
