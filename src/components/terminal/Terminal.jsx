@@ -115,10 +115,10 @@ function Terminal({ dirs, cwd, closed, setClosed }) {
     const cmd = input.trim().split(" ")[0];
     // check commands
     if (cmd === "clear" || cmd === "cls") {
+      event.preventDefault();
       const arr = [{ id: uuid(), type: "first-input" }];
-      event.target.innerText = "";
-      // reset caret margins
       setCaretPosition(0);
+      event.target.innerText = "";
       return arr;
     } else if (cmd === "help") {
       // change current line type
@@ -323,7 +323,7 @@ function Terminal({ dirs, cwd, closed, setClosed }) {
                   );
                 case "first-input":
                   return (
-                    <div key={i} className="first-input">
+                    <div key={i} cclassName="first-input">
                       <span>
                         ~{cwd} ({branch})
                       </span>
@@ -339,12 +339,11 @@ function Terminal({ dirs, cwd, closed, setClosed }) {
                             handleKeyDown(ev, line.id);
                           }}
                           spellCheck="false"
-                        >
-                          <span
-                            className="text-caret"
-                            style={{ left: `${caretPosition}ch` }}
-                          ></span>
-                        </div>
+                        ></div>
+                        <span
+                          className="text-caret"
+                          style={{ left: `${caretPosition}ch` }}
+                        ></span>
                       </form>
                     </div>
                   );

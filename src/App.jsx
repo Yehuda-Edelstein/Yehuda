@@ -6,6 +6,7 @@ import Header from "./components/header/Header";
 import ErrorPage from "./components/404/404";
 import ScreenplayRules from "./components/screenplayrules/ScreenplayRules";
 import "./App.scss";
+import Flrp from "./pages/Flrp";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <div className="app">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/flrp" element={<Flrp />} />
           <Route path="/dumbnail" element={<Dumbnail />} />
           <Route path="/screenplayrules" element={<ScreenplayRules />} />
           <Route path="*" element={<ErrorPage />} />

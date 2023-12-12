@@ -6,7 +6,8 @@ function ScreenplayRules(props) {
 
   return (
     <div className="markdown">
-      <h1>Screenplay Rules: How To Write A Screenplay</h1>
+      <h1>Screenplay Rules</h1>
+      <span className="subHeader">How To Write A Screenplay</span>
       <hr></hr>
       <p>
         I created this site as a way for aspiring screenwriters to learn the
@@ -34,18 +35,11 @@ function ScreenplayRules(props) {
         up for debate; all are important to consider.
       </p>
       <p>That's why I created the screentour --</p>
-      <a
-        target="_blank"
-        rel="noreferrer"
-        href="https://screenplayrules.com/screentour/intro"
-      >
-        {" "}
-        the screentour
-      </a>
       <p>
         -- a way for amatuar writers to learn the process of creating a
         screenplay in an engaging and fun manor.
       </p>
+      <hr></hr>
       <h2>Contributing</h2>
       <p>
         The site is hosted on GH pages and is open to criticism or suggestions,

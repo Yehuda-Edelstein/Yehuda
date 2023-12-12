@@ -28,7 +28,6 @@ function Header(props) {
           {" "}
           <FontAwesomeIcon icon={faLinkedin} />
         </a>
-
         <a
           target="_blank"
           rel="noreferrer"
@@ -36,7 +35,6 @@ function Header(props) {
         >
           <FontAwesomeIcon icon={faGithub} />
         </a>
-
         <a
           target="_blank"
           rel="noreferrer"

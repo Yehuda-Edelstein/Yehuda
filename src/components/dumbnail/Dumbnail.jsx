@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import "./Dumbnail.scss";
 import Terminal from "../terminal/Terminal";
+
+import "./Dumbnail.scss";
 
 function Dumbnail(props) {
   const [closed, setClosed] = useState(true);
 
   return (
     <div className="markdown">
-      <h1>Dumbnail: The Ultimate Memeshot Maker</h1>
-      <hr></hr>
+      <h1>Dumbnail</h1>
+      <span className="subHeader">The Ultimate Memeshot Maker</span>
+      <hr className="hr"></hr>
       <p>
         I created the site to be a one-stop-shop for creating <em>memeshots</em>{" "}
         -- a meme in the version of a screenshot.

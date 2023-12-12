@@ -4,7 +4,7 @@ import Terminal from "../terminal/Terminal";
 import "./Home.scss";
 
 function Home() {
-  const dirs = ["dumbnail", "screenplayrules"];
+  const dirs = ["flrp", "dumbnail", "screenplayrules"];
   const [closed, setClosed] = useState(false);
   const cwd = "/yehuda";
 
