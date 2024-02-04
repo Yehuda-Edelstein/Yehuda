@@ -89,7 +89,6 @@ function Terminal({ dirs, cwd, closed, setClosed }) {
       if (dirs?.includes(dir)) {
         if (dir === "chicken_domain") {
           window.location.href = "https://domains.yehuda.lol/";
-          setClose(true);
         } else {
           window.location.href = `/${dir}/`;
           setClose(true);
