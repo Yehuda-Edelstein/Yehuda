@@ -87,8 +87,13 @@ function Terminal({ dirs, cwd, closed, setClosed }) {
         setClose(true);
       }
       if (dirs?.includes(dir)) {
-        window.location.href = `/${dir}/`;
-        setClose(true);
+        if (dir === "chicken_domain") {
+          window.location.href = "https://domains.yehuda.lol/";
+          setClose(true);
+        } else {
+          window.location.href = `/${dir}/`;
+          setClose(true);
+        }
       } else {
         // change current line type
         const current = [...commandLine];

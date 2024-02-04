@@ -17,7 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/flrp" element={<Flrp />} />
           <Route path="/dumbnail" element={<Dumbnail />} />
-          <Route path="/screenplayrules" element={<ScreenplayRules />} />
+          <Route path="/screenplay_rules" element={<ScreenplayRules />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
