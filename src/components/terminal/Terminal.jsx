@@ -4,10 +4,17 @@ import icon from "./../../assets/icon.png";
 import branches from "./../../assets/branches.json";
 import quotes from "./../../assets/quotes.json";
 import "./Terminal.scss";
+import Draggable from "react-draggable";
 
 function Terminal({ dirs, cwd, closed, setClosed }) {
   const [close, setClose] = useState(closed);
   const [branch, setBranch] = useState(getRandomBranch());
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleStop = (e, data) => {
+    setPosition({ x: data.x, y: data.y });
+  };
+
   // get current date
   const d = new Date();
   const commands = {
@@ -293,131 +300,133 @@ function Terminal({ dirs, cwd, closed, setClosed }) {
   return (
     <div className={!closed ? "wrapper" : ""}>
       {!close ? (
-        <div className="terminal">
-          <div className="terminal-header">
-            <div className="terminal-buttons-container">
-              <span
-                className="terminal-button terminal-button-red"
-                onClick={() => {
-                  setClose(true);
-                  setClosed(true);
-                }}
-              />
-              <span className="terminal-button terminal-button-yellow" />
-              <span className="terminal-button terminal-button-green" />
+        <Draggable position={position} onStop={handleStop}>
+          <div className="terminal">
+            <div className="terminal-header">
+              <div className="terminal-buttons-container">
+                <span
+                  className="terminal-button terminal-button-red"
+                  onClick={() => {
+                    setClose(true);
+                    setClosed(true);
+                  }}
+                />
+                <span className="terminal-button terminal-button-yellow" />
+                <span className="terminal-button terminal-button-green" />
+              </div>
+            </div>
+            <div className="terminal-body">
+              {commandLine?.map((line, i) => {
+                switch (line.type) {
+                  case "time":
+                    return (
+                      <div className="time" key={i}>
+                        <span className="terminal-time">
+                          {line.text}{" "}
+                          <a
+                            href="https://www.npmjs.com/package/rbash"
+                            target="_blank"
+                            rel="noreferrer noopener"
+                          >
+                            https://www.npmjs.com/package/rbash
+                          </a>
+                        </span>
+                      </div>
+                    );
+                  case "first-input":
+                    return (
+                      <div key={i} className="first-input">
+                        <span>
+                          ~{cwd} ({branch})
+                        </span>
+                        <form>
+                          <span className="money">$</span>
+                          <div
+                            contentEditable
+                            className="terminal-input"
+                            onBlur={({ target }) => target.focus()}
+                            autoFocus
+                            ref={inputRef}
+                            onKeyDown={(ev) => {
+                              handleKeyDown(ev, line.id);
+                            }}
+                            spellCheck="false"
+                          ></div>
+                          <span
+                            className="text-caret"
+                            style={{ left: `${caretPosition}ch` }}
+                          ></span>
+                        </form>
+                      </div>
+                    );
+                  case "input":
+                    return (
+                      <div key={i} className="input">
+                        <span>
+                          ~{cwd} ({branch})
+                        </span>
+                        <form>
+                          <span className="money">$</span>
+                          <div
+                            contentEditable
+                            className="terminal-input"
+                            onBlur={({ target }) => target.focus()}
+                            autoFocus
+                            ref={inputRef}
+                            onKeyDown={(ev) => {
+                              handleKeyDown(ev, line.id);
+                            }}
+                            spellCheck="false"
+                          ></div>
+                          <span
+                            className="text-caret"
+                            style={{ left: `${caretPosition}ch` }}
+                          ></span>
+                        </form>
+                      </div>
+                    );
+                  case "submitted":
+                    return (
+                      <div
+                        key={i}
+                        className={i === 0 ? "first-submitted" : "submitted"}
+                      >
+                        <span>
+                          ~{cwd} ({branch})
+                        </span>
+                        <form>
+                          <span className="money">$</span>
+                          <div className="terminal-input">{line.text}</div>
+                        </form>
+                      </div>
+                    );
+                  case "output":
+                    return (
+                      <div key={i} className="output">
+                        {line.text}
+                      </div>
+                    );
+                  case "list-output":
+                    return (
+                      <div className="list" key={i}>
+                        {line.text?.map((text, j) => (
+                          <div
+                            key={j}
+                            className="list-item"
+                            style={{ minHeight: "12.5px" }}
+                          >
+                            {text}
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  default:
+                    return null;
+                }
+              })}
             </div>
           </div>
-          <div className="terminal-body">
-            {commandLine?.map((line, i) => {
-              switch (line.type) {
-                case "time":
-                  return (
-                    <div className="time" key={i}>
-                      <span className="terminal-time">
-                        {line.text}{" "}
-                        <a
-                          href="https://www.npmjs.com/package/rbash"
-                          target="_blank"
-                          rel="noreferrer noopener"
-                        >
-                          https://www.npmjs.com/package/rbash
-                        </a>
-                      </span>
-                    </div>
-                  );
-                case "first-input":
-                  return (
-                    <div key={i} cclassName="first-input">
-                      <span>
-                        ~{cwd} ({branch})
-                      </span>
-                      <form>
-                        <span className="money">$</span>
-                        <div
-                          contentEditable
-                          className="terminal-input"
-                          onBlur={({ target }) => target.focus()}
-                          autoFocus
-                          ref={inputRef}
-                          onKeyDown={(ev) => {
-                            handleKeyDown(ev, line.id);
-                          }}
-                          spellCheck="false"
-                        ></div>
-                        <span
-                          className="text-caret"
-                          style={{ left: `${caretPosition}ch` }}
-                        ></span>
-                      </form>
-                    </div>
-                  );
-                case "input":
-                  return (
-                    <div key={i} className="input">
-                      <span>
-                        ~{cwd} ({branch})
-                      </span>
-                      <form>
-                        <span className="money">$</span>
-                        <div
-                          contentEditable
-                          className="terminal-input"
-                          onBlur={({ target }) => target.focus()}
-                          autoFocus
-                          ref={inputRef}
-                          onKeyDown={(ev) => {
-                            handleKeyDown(ev, line.id);
-                          }}
-                          spellCheck="false"
-                        ></div>
-                        <span
-                          className="text-caret"
-                          style={{ left: `${caretPosition}ch` }}
-                        ></span>
-                      </form>
-                    </div>
-                  );
-                case "submitted":
-                  return (
-                    <div
-                      key={i}
-                      className={i === 0 ? "first-submitted" : "submitted"}
-                    >
-                      <span>
-                        ~{cwd} ({branch})
-                      </span>
-                      <form>
-                        <span className="money">$</span>
-                        <div className="terminal-input">{line.text}</div>
-                      </form>
-                    </div>
-                  );
-                case "output":
-                  return (
-                    <div key={i} className="output">
-                      {line.text}
-                    </div>
-                  );
-                case "list-output":
-                  return (
-                    <div className="list" key={i}>
-                      {line.text?.map((text, j) => (
-                        <div
-                          key={j}
-                          className="list-item"
-                          style={{ minHeight: "12.5px" }}
-                        >
-                          {text}
-                        </div>
-                      ))}
-                    </div>
-                  );
-                default:
-                  return null;
-              }
-            })}
-          </div>
-        </div>
+        </Draggable>
       ) : (
         <div
           className="icon"
